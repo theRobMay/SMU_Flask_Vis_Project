@@ -38,20 +38,17 @@ def wildfire_start_end(min_year, max_year):
                 SELECT
                     *
                 FROM
-                    eruptions
+                    wildfires
                 WHERE
-                    start_year >= {min_year}
-                    AND start_year <= {max_year};
+                    fire_size >= {min_year}
+                    AND fire_size <= {max_year};
             """)
 
     df = pd.read_sql(query, engine)
-    df2 = df.volcano_name.value_counts().reset_index()
-    df2.columns = ["volcano_name", "counts"]
 
     data = json.loads(df.to_json(orient="records"))
-    data2 = json.loads(df2.to_json(orient="records"))
 
-    return({"raw_data": data, "volcanoes": data2})
+    return {"raw_data": data}
 
 #############################################################
 
