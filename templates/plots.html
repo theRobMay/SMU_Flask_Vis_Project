@@ -33,7 +33,15 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body>
-  <h1>Placeholder for plots</h1>
+    <h1>Placeholder for plots</h1>
+    <!-- FILTERS and BUTTON -->
+    <div>
+        <label for="min_size">Min Size to Filter?</label>
+        <input type="number" id="min_size" name="min_size" min="0" max="550000" value="0" step="5">
+        <label for="max_size">Max Size to Filter?</label>
+        <input type="number" id="max_size" name="max_size" min="0.5" max="550000" value="5" step="5">
+        <button type="button" id="submit" onclick="clickListener()">Filter!</button>
+    </div>
 
   <!-- Parent container for MAP -->
     <div id="map_container">

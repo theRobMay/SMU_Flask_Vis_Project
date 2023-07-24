@@ -31,8 +31,8 @@ def plots():
 
 ##########################################################################
 
-@app.route("/api/v1.0/<min_year>/<max_year>")
-def wildfire_start_end(min_year, max_year):
+@app.route("/api/v1.0/<min_size>/<max_size>")
+def wildfire_start_end(min_siz, max_size):
     """Get stations"""
     query = text(f"""
                 SELECT
@@ -40,8 +40,8 @@ def wildfire_start_end(min_year, max_year):
                 FROM
                     wildfires
                 WHERE
-                    fire_size >= {min_year}
-                    AND fire_size <= {max_year};
+                    fire_size >= {min_siz}
+                    AND fire_size <= {max_size};
             """)
 
     df = pd.read_sql(query, engine)
