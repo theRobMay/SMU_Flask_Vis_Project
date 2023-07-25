@@ -56,7 +56,7 @@ function makePlots(raw_data, min_size, max_size) {
     for (let i = 0; i < inp_data.length; i++){
       let wildfire = inp_data[i];
       let coord = [wildfire.latitude, wildfire.longitude];
-      let marker = L.marker(coord).bindPopup(`${wildfire.fire_size}<hr>${wildfire.fire_size}`);
+      let marker = L.marker(coord).bindPopup(`${wildfire.fire_name}<hr>Cause: ${wildfire.stat_cause_descr}, Date: ${wildfire.disc_clean_date}`);
       markers.addLayer(marker);
       coords.push(coord);
     }
@@ -79,9 +79,9 @@ function makePlots(raw_data, min_size, max_size) {
     // Create a new map.
     // Edit the code to add the wildfire data to the layers.
     let myMap = L.map("map", {
-      center: [40.7128, -74.0059],
-      zoom: 15,
-      layers: [street, markers]
+      center: [39.50, -98.3559],
+      zoom: 4,
+      layers: [street, markers, heatLayer]
     });
     // STEP 5: Add the Layer Controls/Legend to the map
     // Create a layer control that contains our baseMaps.
