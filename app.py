@@ -32,7 +32,7 @@ def plots():
 ##########################################################################
 
 @app.route("/api/v1.0/<min_size>/<max_size>")
-def wildfire_start_end(min_siz, max_size):
+def wildfire_start_end(min_size, max_size):
     """Get stations"""
     query = text(f"""
                 SELECT
@@ -40,7 +40,7 @@ def wildfire_start_end(min_siz, max_size):
                 FROM
                     wildfires
                 WHERE
-                    fire_size >= {min_siz}
+                    fire_size >= {min_size}
                     AND fire_size <= {max_size};
             """)
 
