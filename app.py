@@ -31,8 +31,8 @@ def plots():
 
 ##########################################################################
 
-@app.route("/api/v1.0/<min_size>/<max_size>")
-def wildfire_start_end(min_size, max_size):
+@app.route("/api/v1.0/<min_size>/<max_size>/<state>")
+def wildfire_start_end(min_size, max_size, state):
     """Get stations"""
     query = text(f"""
                 SELECT
@@ -41,7 +41,8 @@ def wildfire_start_end(min_size, max_size):
                     wildfires
                 WHERE
                     fire_size >= {min_size}
-                    AND fire_size <= {max_size};
+                    AND fire_size <= {max_size}
+                    AND state = {state};
             """)
 
     df = pd.read_sql(query, engine)
