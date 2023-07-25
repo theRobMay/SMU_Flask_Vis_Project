@@ -55,8 +55,8 @@ function makePlots(raw_data, min_size, max_size) {
     let coords = [];
     for (let i = 0; i < inp_data.length; i++){
       let wildfire = inp_data[i];
-      let coord = [inp_data.latitude, inp_data.longitude];
-      let marker = L.marker(coord).bindPopup(`${inp_data.fire_size}<hr>${inp_data.fire_size}`);
+      let coord = [wildfire.latitude, wildfire.longitude];
+      let marker = L.marker(coord).bindPopup(`${wildfire.fire_size}<hr>${wildfire.fire_size}`);
       markers.addLayer(marker);
       coords.push(coord);
     }
