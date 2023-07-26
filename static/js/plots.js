@@ -18,13 +18,13 @@ function clickListener() {
 }
 function makePlots(raw_data, min_size, max_size) {
     // Slice the first 10 objects for plotting
-    let data_sub = raw_data.slice(0, 20);
+    let data_sub = raw_data.slice(0, 10);
     // Reverse the array to accommodate Plotly's defaults
     data_sub.reverse();
     // Trace for the wildfire Data
     let trace1 = {
-      x: data_sub.map(row => row.counts),
-      y: data_sub.map(row => row.fire_size),
+      x: data_sub.map(row => row.fire_size),
+      y: data_sub.map(row => row.fire_name),
       name: `wildfires`,
       type: 'bar',
       orientation: "h",
@@ -34,7 +34,7 @@ function makePlots(raw_data, min_size, max_size) {
     let data = [trace1];
     // Apply a title to the layout
     let layout = {
-      "title": `wildfires - size ${min_size} - ${max_size}`,
+      "title": `wildfires - size`,
       "yaxis": {'title': "fire-size"}
     }
     // Render the plot to the div tag with id "plot"
