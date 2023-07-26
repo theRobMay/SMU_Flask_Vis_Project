@@ -44,12 +44,12 @@ function makePlots(raw_data, min_size, max_size) {
       return raw_data.map(function(row) { return row[key]; });
     }
     let trace2 = {
-    type: "scatter",
-    mode: "lines",
-    name: 'WF High',
-    x: timeseries(raw_data, 'disc_clean_date'),
-    y: timeseries(raw_data, 'row.counts'),
-    line: {color: '#17BECF'}
+        type: "scatter",
+        mode: "lines",
+        name: 'WF High',
+        x: timeseries(raw_data, 'disc_clean_date'),
+        y: timeseries(raw_data, 'row.counts'),
+        line: {color: '#17BECF'}
   }
     let trace3 = {
       type: "scatter",
