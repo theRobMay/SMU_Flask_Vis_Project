@@ -39,7 +39,32 @@ function makePlots(raw_data, min_size, max_size) {
     }
     // Render the plot to the div tag with id "plot"
     Plotly.newPlot("bar", data, layout);
+
+    function timeseries(raw_data, key) {
+      return raw_data.map(function(row) { return row[key]; });
+    }
+    let trace2 = {
+    type: "scatter",
+    mode: "lines",
+    name: 'WF High',
+    x: timeseries(raw_data, 'disc_clean_date'),
+    y: timeseries(raw_data, 'row.counts'),
+    line: {color: '#17BECF'}
   }
+    let trace3 = {
+      type: "scatter",
+      mode: "lines",
+      name: 'WF Low',
+      x: timeseries(raw_data, 'disc_clean_date'),
+      y: timeseries(raw_data, 'row.counts'),
+      line: {color: '#7F7F7F'}
+    }
+    let data2 = [trace2,trace3];
+    let layout2 = {
+      title: 'Time Series',
+    };
+    Plotly.newPlot('myDiv', data2, layout2);
+}
   function createMap(inp_data) {
     // STEP 1: CREATE THE BASE LAYERS
     // Create the base layers.
