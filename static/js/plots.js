@@ -70,10 +70,32 @@ function makePlots(raw_data, min_size, max_size) {
     // Create the base layers.
     let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    })
+    }); 
+   
+
     let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
     });
+
+    let googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+    });
+
+    // watercolor 
+    let watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+	  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	  subdomains: 'abcd',
+	  minZoom: 1,
+	  maxZoom: 16,
+	  ext: 'jpg'
+    });
+
+
+
+
+
+    
     // STEP 2: CREATE THE OVERLAY LAYERS
     // Create an overlays object.
     let markers = L.markerClusterGroup();
@@ -87,14 +109,19 @@ function makePlots(raw_data, min_size, max_size) {
     }
     // create heatmap layer
     let heatLayer = L.heatLayer(coords, {
-      radius: 20,
-      blur: 30
+      radius: 8, 
+      minOpacity: 70, 
+      max: 1000,
+      gradient: {1: 'red', 0.7: 'orange', 0.5: 'yellow'}
+      
     });
     // STEP 3: Build the Layer Controls
     // Create a baseMaps object.
     let baseMaps = {
       "Street Map": street,
-      "Topographic Map": topo
+      "Topographic Map": topo,
+      "Google Satellite": googleSat, 
+      "Water Color":watercolor,
     };
     let overlayMaps = {
       "wildfires": markers,
@@ -104,8 +131,8 @@ function makePlots(raw_data, min_size, max_size) {
     // Create a new map.
     // Edit the code to add the wildfire data to the layers.
     let myMap = L.map("map", {
-      center: [39.50, -98.3559],
-      zoom: 4,
+      center: [38, -100],
+      zoom: 5,
       layers: [street, markers, heatLayer]
     });
     // STEP 5: Add the Layer Controls/Legend to the map
