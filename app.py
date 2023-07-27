@@ -13,21 +13,25 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 #################################################
 engine = create_engine("sqlite:///data/wildfires.sqlite")
 
+
 # Route to render index.html template using data from Mongo
 @app.route("/")
 def home():
     # Return template and data
     return render_template("index.html")
 
+
 @app.route("/about_us")
 def about_us():
     # Return template and data
     return render_template("about_us.html")
 
+
 @app.route("/plots")
 def plots():
     # Return template and data
     return render_template("plots.html")
+
 
 ##########################################################################
 
@@ -46,10 +50,14 @@ def wildfire_start_end(min_size, max_size, state):
             """)
 
     df = pd.read_sql(query, engine)
+    df2 = df.discovery_month.value_counts().reset_index()
+    df2.columns = ["month", "counts"]
 
     data = json.loads(df.to_json(orient="records"))
+    data2 = json.loads(df2.to_json(orient="records"))
 
-    return {"raw_data": data}
+    return {"raw_data": data, 'month_data': data2}
+
 
 #############################################################
 
@@ -65,6 +73,7 @@ def add_header(r):
     r.headers["Expires"] = "0"
     return r
 
-#main
+
+# main
 if __name__ == "__main__":
     app.run(debug=True)

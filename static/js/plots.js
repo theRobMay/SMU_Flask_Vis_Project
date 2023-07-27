@@ -12,11 +12,11 @@ function clickListener() {
   d3.json(url).then(function (data) {
     console.log(data);
 
-    makePlots(data.raw_data);
+    makePlots(data.raw_data, data.month_data);
     createMap(data.raw_data);
   });
 }
-function makePlots(raw_data, min_size, max_size) {
+function makePlots(raw_data, month_data) {
     // Slice the first 10 objects for plotting
     let data_sub = raw_data.slice(0, 10);
     // Reverse the array to accommodate Plotly's defaults
