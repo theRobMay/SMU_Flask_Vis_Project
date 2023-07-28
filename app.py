@@ -50,6 +50,7 @@ def wildfire_start_end(min_size, max_size, state):
             """)
 
     df = pd.read_sql(query, engine)
+    df = df.sort_values(by=['fire_size'], ascending=False)
     df2 = df.discovery_month.value_counts().reset_index()
     df2.columns = ["month", "counts"]
 

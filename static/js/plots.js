@@ -40,28 +40,16 @@ function makePlots(raw_data, month_data) {
     // Render the plot to the div tag with id "plot"
     Plotly.newPlot("bar", data, layout);
 
-    function timeseries(raw_data, key) {
-      return raw_data.map(function(row) { return row[key]; });
-    }
     let trace2 = {
-        type: "scatter",
-        mode: "lines",
-        name: 'WF High',
-        x: timeseries(raw_data, 'disc_clean_date'),
-        y: timeseries(raw_data, 'row.counts'),
-        line: {color: '#17BECF'}
+      type: 'pie',
+      labels: month_data.map(row => row.month),
+      values: month_data.map(row => row.counts),
   }
-    let trace3 = {
-      type: "scatter",
-      mode: "lines",
-      name: 'WF Low',
-      x: timeseries(raw_data, 'disc_clean_date'),
-      y: timeseries(raw_data, 'row.counts'),
-      line: {color: '#7F7F7F'}
-    }
-    let data2 = [trace2,trace3];
+    let data2 = [trace2];
     let layout2 = {
-      title: 'Time Series',
+      title: 'Fires by Month',
+      height: 400,
+      width: 500
     };
     Plotly.newPlot('myDiv', data2, layout2);
 }
