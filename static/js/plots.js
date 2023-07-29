@@ -52,7 +52,7 @@ function makePlots(raw_data, month_data) {
   }
     let data2 = [trace2];
     let layout2 = {
-      title: 'Fires by Month',
+      title: 'Percentage of Wildfires by Month',
       height: 500,
       width: 500
     };
