@@ -32,6 +32,11 @@ def plots():
     # Return template and data
     return render_template("plots.html")
 
+@app.route("/resources")
+def resources():
+    # Return template and data
+    return render_template("resources.html")
+
 
 ##########################################################################
 
