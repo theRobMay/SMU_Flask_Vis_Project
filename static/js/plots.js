@@ -28,7 +28,7 @@ function makePlots(raw_data, month_data) {
       name: `wildfires`,
       type: 'bar',
       orientation: "h",
-      marker: {color: 'firebrick'}
+      marker: {color: '#ff6464'}
     };
     // Data array
     let data = [trace1];
@@ -47,6 +47,10 @@ function makePlots(raw_data, month_data) {
 
     let trace2 = {
       type: 'pie',
+      hole: 0.4,
+      marker:{
+        colors: ['#ff6464','#ff8264','#ffaa64','#fff5a5','#212121','#c06c84','#f8b595','#edf798','#ffad5a','#4f9da6','#1a0841','#bb5a5a']
+      },
       labels: month_data.map(row => row.month),
       values: month_data.map(row => row.counts),
   }
