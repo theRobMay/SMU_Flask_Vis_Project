@@ -5,7 +5,14 @@
 .plot-group{
   display: flex;
   justify-content: center;
+  align-items: baseline;
+}
+.header{
+  padding-top: 10px;
+  padding-left: 15px;
 }
 .row{
+  padding-left: 15px;
+  justify-content: center;
   align-items: flex-end;
 }
