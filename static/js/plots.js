@@ -34,8 +34,13 @@ function makePlots(raw_data, month_data) {
     let data = [trace1];
     // Apply a title to the layout
     let layout = {
-      "title": `wildfires - size`,
-      "yaxis": {'title': "fire-size"}
+      "title": `Largest Wildfires by Acres`,
+      xaxis:{
+        title:{
+          text:'Est. Acres Burned'
+        }
+      },
+      width: 950
     }
     // Render the plot to the div tag with id "plot"
     Plotly.newPlot("bar", data, layout);
@@ -48,7 +53,7 @@ function makePlots(raw_data, month_data) {
     let data2 = [trace2];
     let layout2 = {
       title: 'Fires by Month',
-      height: 400,
+      height: 500,
       width: 500
     };
     Plotly.newPlot('myDiv', data2, layout2);

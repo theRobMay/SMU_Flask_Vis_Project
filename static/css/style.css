@@ -1,4 +1,11 @@
 #map
 {
-  height: 750px;
+  height: 60vh;
+}
+.plot-group{
+  display: flex;
+  justify-content: center;
+}
+.row{
+  align-items: flex-end;
 }
