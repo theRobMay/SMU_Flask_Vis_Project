@@ -18,7 +18,7 @@ function clickListener() {
 }
 function makePlots(raw_data, month_data) {
     // Slice the first 10 objects for plotting
-    let data_sub = raw_data.slice(0, 10);
+    let data_sub = raw_data.slice(0, 9);
     // Reverse the array to accommodate Plotly's defaults
     data_sub.reverse();
     // Trace for the wildfire Data
