@@ -30,18 +30,44 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Wildfires in America</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/plots">Plots
+              <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about_us">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Resources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <h1>Placeholder for plots</h1>
     <!-- FILTERS and BUTTON -->
-    <div>
-        <label for="min_size">Min Size to Filter?</label>
-        <input type="number" id="min_size" name="min_size" min="0" max="538000" value="0" step="5">
-        <label for="max_size">Max Size to Filter?</label>
-        <input type="number" id="max_size" name="max_size" min="0.5" max="550000" value="550000" step="5">
-        <label for="state">Choose a state:</label>
-        <select name="state" id="state">
+    <div class="form-group">
+        <label for="min_size" class="form-label mt-4">Min Size to Filter?</label>
+        <input type="number" id="min_size" name="min_size" min="0" max="538000" value="0" step="5" class="form-control">
+        <label for="max_size" class="form-label mt-4">Max Size to Filter?</label>
+        <input type="number" id="max_size" name="max_size" min="0.5" max="550000" value="550000" step="5" class="form-control">
+        <label for="state" class="form-label mt-4">Choose a state:</label>
+        <select class="form-select" name="state" id="state">
             <option value="state" selected>Any</option>
             <option value="'AL'">Alabama</option>
             <option value="'AK'">Alaska</option>
@@ -94,6 +120,7 @@
             <option value="'WI'">Wisconsin</option>
             <option value="'WY'">Wyoming</option>
         </select>
+        </div>
         <button type="button" id="submit" onclick="clickListener()">Filter!</button>
     </div>
 
