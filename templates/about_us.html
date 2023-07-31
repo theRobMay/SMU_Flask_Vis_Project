@@ -112,10 +112,10 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">About The Team</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <a class="navbar-brand" href="#">Wildfires in America</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
           <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
@@ -133,10 +133,6 @@
                 </li>
               </ul>
           </div>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Library</li>
-          </ol>
         </div>
       </nav>
 
@@ -147,7 +143,7 @@
     <div class="card border-primary mb-3">
         <div class="card-header">Anny Ly</div>
         <div class="card-body">
-            <img src="/data/pics/Ann.jpg" alt="Ann" style="width:100%">
+            <img src="{{url_for('static', filename='Ann.jpg')}}" alt="Ann" style="width:100%">
           <h4 class="card-title"></h4>
           <p class="card-text"> Ann is a mother of two beautiful girls aged 7 and 11 and the wife of a very wonderful and supportive husband. She has a BS in Biology and is a licensed Nursing Home Administrator. With the ever-changing world of technology, she wanted to change her career toward Data Science, and taking this challenging boot camp was her first step toward a new future. Her hobbies outside of this Bootcamp include gardening, cooking, and reading.</p>
         </div>
@@ -156,7 +152,7 @@
     <div class="card border-primary mb-3">
         <div class="card-header">Rob Maysent</div>
         <div class="card-body">
-            <img src="/data/pics/Rob.jpg" alt="Rob" style="width:100%;">
+            <img src="{{url_for('static', filename='Rob.jpg')}}" alt="Rob" style="width:100%;">
           <h4 class="card-title"></h4>
           <p class="card-text"> Rob is a young professional learning about data and how its interpolation can be used to reinvigorate workflow for numerous industries. He hopes one day to work in the cutting-edge industry of machine learning and AI in the hopes of creating new systems to improve our everyday lifestyle through advancements in data science and technology.</p>
         </div>
@@ -165,7 +161,7 @@
         <div class="card border-primary mb-3">
             <div class="card-header">Raj Agrawal</div>
             <div class="card-body">
-                <img src="/data/pics/Raj.png" alt="Raj" style="width:100%;">
+                <img src="{{url_for('static', filename='Raj.png')}}" alt="Raj" style="width:100%;">
               <h4 class="card-title"></h4>
               <p class="card-text"> Raj is inspired by the audacious journey this SMU data science boot camp takes to see science spin in a new direction. He is proud to be a part of this cohort and to be supporting his team along the way. Raj has travel experience across 45+ countries, spanning 6 continents. He hopes this may help with data visualizations giving context to people and cultural values.</p>
             </div>
@@ -174,7 +170,7 @@
         <div class="card border-primary mb-3">
             <div class="card-header">Ryan Johnson</div>
             <div class="card-body">
-                <img src="/data/pics/Ryan.jpg" alt="Ryan" style="width:100%;">
+                <img src="{{url_for('static', filename='Ryan.jpg')}}" alt="Ryan" style="width:100%;">
               <h4 class="card-title"></h4>
               <p class="card-text"> Born and raised in Nebraska, Ryan was always interested in a grander picture. After 2 years of college in northern Nebraska, he moved to California to continue his education in Behavioral Neuroscience at UCI. Ryan lived in Orange County for 5 years before deciding to move to Dallas, Texas to continue their personal and professional growth. This ultimately led them to join a Data Science Bootcamp with SMU. With 10+ years of customer service and property management-related experience, Ryan hopes to start a new career for themselves in the field of computer science and data analytics. </p>
             </div>
