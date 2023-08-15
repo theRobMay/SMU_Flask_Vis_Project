@@ -1,6 +1,9 @@
 # SMU Data Analytics Bootcamp Project 3: 
-                                                            "Wildfires in the United States from 1992-2015"
-Project 3: Wild Fires in the US from 1992-2015
+                                                           
+    Wild Fires in the US from 1992-2015
+    
+    
+   
     For this project, we were tasked to build a website that contains a landing/home page, an about us page, a work cited page, and an interactive data dashboard that tells an effective story of our chosen dataset. The dataset that we choose for our project is “US Wildfire data” taken from Kaggle. Our original dataset came in CSV format, with 18455 Kb in size, and has 43 columns. This dataset contains randomly selected 50,000 fire samples from a huge dataset of 1.88 Million US Wildfires ranging from wildfires data from the year 1992 to 2015. Our goal is to analyze the data, then determine if: 
 - What months or seasonality has the highest number of wildfires in the US?
  - What region of the US that most likely to have more wildfires than others?
